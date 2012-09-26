@@ -20,7 +20,7 @@ div.analog-clock, div.analog-clock *
 
 
 div.analog-clock
-  font-size:        440%
+  font-size:        300%
   position:         relative
   width:            10em
   height:           10em
@@ -70,7 +70,7 @@ div.analog-clock
       right: 9.5%
 
     &.num-3, &.num-9
-      top:   42.5%
+      top:   43%
 
     &.num-4, &.num-8
       bottom: 23%
@@ -293,21 +293,6 @@ div.analog-clock
     height:        .2em
     margin-top:   -.1em
     border-radius: .5em
-    -webkit-animation-name:            analog-clock-rotate
-    -webkit-animation-iteration-count: infinite
-    -webkit-animation-timing-function: linear
-    -moz-animation-name:               analog-clock-rotate
-    -moz-animation-iteration-count:    infinite
-    -moz-animation-timing-function:    linear
-    -ms-animation-name:                analog-clock-rotate
-    -ms-animation-iteration-count:     infinite
-    -ms-animation-timing-function:     linear
-    -o-animation-name:                 analog-clock-rotate
-    -o-animation-iteration-count:      infinite
-    -o-animation-timing-function:      linear
-    animation-name:                    analog-clock-rotate
-    animation-iteration-count:         infinite
-    animation-timing-function:         linear
 
     &:after
       content:       ' '
@@ -320,22 +305,12 @@ div.analog-clock
       border-radius: inherit
 
     &.hours
-      -webkit-animation-duration: 86400s
-      -moz-animation-duration:    86400s
-      -ms-animation-duration:     86400s
-      -o-animation-duration:      86400s
-      animation-duration:         86400s
       font-size: 200%
 
       &:after
         right: -70%
 
     &.minutes
-      -webkit-animation-duration: 3600s
-      -moz-animation-duration:    3600s
-      -ms-animation-duration:     3600s
-      -o-animation-duration:      3600s
-      animation-duration:         3600s
 
       &:after
         width: 220%
@@ -343,36 +318,6 @@ div.analog-clock
     &.seconds
       background: red
       font-size:  50%
-      -webkit-animation-duration: 60s
-      -moz-animation-duration:    60s
-      -ms-animation-duration:     60s
-      -o-animation-duration:      60s
-      animation-duration:         60s
 
       &:after
         width: 250%
-
-@-webkit-keyframes analog-clock-rotate
-  from
-    -webkit-transform: rotate(0deg)   translate3d(0,0,0)
-  to
-    -webkit-transform: rotate(360deg) translate3d(0,0,0)
-
-@-moz-keyframes analog-clock-rotate
-  from
-    -moz-transform: rotate(0deg)   translate3d(0,0,0)
-  to
-    -moz-transform: rotate(360deg) translate3d(0,0,0)
-
-@-ms-keyframes analog-clock-rotate
-  from
-    -ms-transform: rotate(0deg)   translate3d(0,0,0)
-  to
-    -ms-transform: rotate(360deg) translate3d(0,0,0)
-
-@-o-keyframes analog-clock-rotate
-  from
-    -o-transform: rotate(0deg)   translate3d(0,0,0)
-  to
-    -o-transform: rotate(360deg) translate3d(0,0,0)
-

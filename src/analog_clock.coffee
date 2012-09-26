@@ -28,3 +28,58 @@ class AnalogClock extends Element
       <div class="arrow minutes"></div>
       <div class="arrow seconds"></div>
     """
+
+    @start()
+
+  #
+  # Sets up the current time
+  #
+  # @param {Date} current time
+  # @return {AnalogClock} this
+  #
+  time: (date)->
+    seconds = @first('.seconds')._.style
+    minutes = @first('.minutes')._.style
+    hours   = @first('.hours')._.style
+
+    seconds.WebkitTransform     =
+    seconds.MozTransform        =
+    seconds.msTransform         =
+    seconds.oTransform          =
+    seconds.transform           = "rotate("+ (6 * date.getSeconds() - 90) + "deg)"
+
+    minutes.WebkitTransform     =
+    minutes.MozTransform        =
+    minutes.msTransform         =
+    minutes.oTransform          =
+    minutes.transform           = "rotate("+ (6 * date.getMinutes() - 90) + "deg)"
+
+    hour = date.getHours() + date.getMinutes() / 60; hour > 12 && (hour -= 12)
+
+    hours.WebkitTransform       =
+    hours.MozTransform          =
+    hours.msTransform           =
+    hours.oTransform            =
+    hours.transform             = "rotate("+ (360 / 12 * hour - 90) + "deg)"
+
+    return @
+
+  #
+  # Starts the timer
+  #
+  # @return {AnalogClock} this
+  #
+  start: ->
+    @_timer = window.setInterval =>
+      @time new Date()
+    , 100
+    return @time(new Date())
+
+  #
+  # Stops the clock
+  #
+  # @return {AnalogClock} this
+  #
+  stop: ->
+    window.clearInterval @_timer if @_timer
+    return @
