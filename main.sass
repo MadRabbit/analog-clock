@@ -20,55 +20,217 @@ div.analog-clock, div.analog-clock *
 
 
 div.analog-clock
+  font-size:        200%
   position:         relative
-  width:            16em
-  height:           16em
+  width:            10em
+  height:           10em
   border:           1em solid rgba(0,0,0,.4)
   border-radius:    50%
   background-color: rgba(255,255,255,.5)
 
+  &:before, &:after
+    content:       ' '
+    position:      absolute
+    width:         50%
+    height:        50%
+    left:          0px
+    top:           0px
+    border-radius: 100% 0 0 0
+    z-index:       1
+
+
+  &:after
+    top:           50%
+    left:          50%
+    border-radius: 0 0 100% 0
+
   label
-    font-size:   1.6em
+    font-size:   1em
     font-family: helvetica, verdana, serif
     position:    absolute
+    border-radius: 50%
+    width:       1.4em
+    height:      1.4em
+    line-height: 1.4em
+    text-align:  center
+    z-index:     2
 
-    &:nth-of-type(1), &:nth-of-type(11)
-      top:   11%
+    &.num-1, &.num-11
+      top:   9%
 
-    &:nth-of-type(1), &:nth-of-type(5)
-      right: 27%
+    &.num-1, &.num-5
+      right: 24%
 
-    &:nth-of-type(2), &:nth-of-type(10)
-      top:   25%
+    &.num-2, &.num-10
+      top:   23%
 
-    &:nth-of-type(2), &:nth-of-type(4)
-      right: 13%
+    &.num-2, &.num-4
+      right: 9.5%
 
-    &:nth-of-type(3), &:nth-of-type(9)
+    &.num-3, &.num-9
+      top:   42.5%
+
+    &.num-4, &.num-8
+      bottom: 23%
+
+    &.num-5, &.num-7
+      bottom: 9%
+
+    &.num-6, &.num-12
+      left: 42.5%
+
+    &.num-7, &.num-11
+      left: 24%
+
+    &.num-8, &.num-10
+      left: 9.5%
+
+    &.num-3
+      right: 4.25%
+
+    &.num-6
+      bottom: 4.25%
+
+    &.num-9
+      left: 4.25%
+
+    &.num-12
+      top:  4.25%
+
+    &:before
+      font-size:     1em
+      content:       ' '
+      display:       block
+      background:    rgba(0,0,0,.75)
+      width:        .5em
+      height:       .1em
+      position:      absolute
+      border-radius: 0 50% 50% 0
+
+    &.num-1:before
+      -webkit-transform: rotate(120deg)
+      -moz-transform:    rotate(120deg)
+      -ms-transform:     rotate(120deg)
+      -o-transform:      rotate(120deg)
+      transform:         rotate(120deg)
+
+    &.num-2:before
+      -webkit-transform: rotate(150deg)
+      -moz-transform:    rotate(150deg)
+      -ms-transform:     rotate(150deg)
+      -o-transform:      rotate(150deg)
+      transform:         rotate(150deg)
+
+    &.num-3:before
+      -webkit-transform: rotate(180deg)
+      -moz-transform:    rotate(180deg)
+      -ms-transform:     rotate(180deg)
+      -o-transform:      rotate(180deg)
+      transform:         rotate(180deg)
+
+    &.num-4:before
+      -webkit-transform: rotate(-150deg)
+      -moz-transform:    rotate(-150deg)
+      -ms-transform:     rotate(-150deg)
+      -o-transform:      rotate(-150deg)
+      transform:         rotate(-150deg)
+
+    &.num-5:before
+      -webkit-transform: rotate(-120deg)
+      -moz-transform:    rotate(-120deg)
+      -ms-transform:     rotate(-120deg)
+      -o-transform:      rotate(-120deg)
+      transform:         rotate(-120deg)
+
+    &.num-6:before
+      -webkit-transform: rotate(-90deg)
+      -moz-transform:    rotate(-90deg)
+      -ms-transform:     rotate(-90deg)
+      -o-transform:      rotate(-90deg)
+      transform:         rotate(-90deg)
+
+    &.num-7:before
+      -webkit-transform: rotate(-60deg)
+      -moz-transform:    rotate(-60deg)
+      -ms-transform:     rotate(-60deg)
+      -o-transform:      rotate(-60deg)
+      transform:         rotate(-60deg)
+
+    &.num-8:before
+      -webkit-transform: rotate(-30deg)
+      -moz-transform:    rotate(-30deg)
+      -ms-transform:     rotate(-30deg)
+      -o-transform:      rotate(-30deg)
+      transform:         rotate(-30deg)
+
+    &.num-9:before
+      -webkit-transform: rotate(0deg)
+      -moz-transform:    rotate(0deg)
+      -ms-transform:     rotate(0deg)
+      -o-transform:      rotate(0deg)
+      transform:         rotate(0deg)
+
+    &.num-10:before
+      -webkit-transform: rotate(30deg)
+      -moz-transform:    rotate(30deg)
+      -ms-transform:     rotate(30deg)
+      -o-transform:      rotate(30deg)
+      transform:         rotate(30deg)
+
+    &.num-11:before
+      -webkit-transform: rotate(60deg)
+      -moz-transform:    rotate(60deg)
+      -ms-transform:     rotate(60deg)
+      -o-transform:      rotate(60deg)
+      transform:         rotate(60deg)
+
+    &.num-12:before
+      -webkit-transform: rotate(90deg)
+      -moz-transform:    rotate(90deg)
+      -ms-transform:     rotate(90deg)
+      -o-transform:      rotate(90deg)
+      transform:         rotate(90deg)
+
+
+    &.num-1:before, &.num-11:before
+      top:   -8%
+
+    &.num-1:before, &.num-5:before
+      right: -2%
+
+    &.num-2:before, &.num-10:before
+      top:   15%
+
+    &.num-2:before, &.num-4:before
+      right: -22%
+
+    &.num-3:before, &.num-9:before
       top:   45%
 
-    &:nth-of-type(4), &:nth-of-type(8)
-      bottom: 25%
+    &.num-4:before, &.num-8:before
+      bottom: 15%
 
-    &:nth-of-type(5), &:nth-of-type(7)
-      bottom: 11%
+    &.num-5:before, &.num-7:before
+      bottom: -8%
 
-    &:nth-of-type(7), &:nth-of-type(11)
-      left: 26%
+    &.num-6:before, &.num-12:before
+      left: 35%
 
-    &:nth-of-type(8), &:nth-of-type(10)
-      left: 11%
+    &.num-7:before, &.num-11:before
+      left: -2%
 
-    &:nth-of-type(3)
-      right: 5%
+    &.num-8:before, &.num-10:before
+      left: -22%
 
-    &:nth-of-type(6)
-      bottom: 5%
-      left:   47%
+    &.num-3:before
+      right: -30%
 
-    &:nth-of-type(9)
-      left: 5%
+    &.num-9:before
+      left: -30%
 
-    &:nth-of-type(12)
-      top: 5%
-      left: 44%
+    &.num-6:before
+      bottom: -20%
+
+    &.num-12:before
+      top: -20%
+
