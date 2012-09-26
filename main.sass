@@ -20,13 +20,14 @@ div.analog-clock, div.analog-clock *
 
 
 div.analog-clock
-  font-size:        200%
+  font-size:        440%
   position:         relative
   width:            10em
   height:           10em
   border:           .75em solid rgba(0,0,0,.4)
   border-radius:    50%
   background-color: rgba(255,255,255,.5)
+  text-align:       center
 
   &:before, &:after
     content:       ' '
@@ -37,12 +38,14 @@ div.analog-clock
     top:           0px
     border-radius: 100% 0 0 0
     z-index:       1
+    background:    yellow
 
 
   &:after
     top:           50%
     left:          50%
     border-radius: 0 0 100% 0
+    background:    pink
 
   label
     font-size:   1em
@@ -52,7 +55,6 @@ div.analog-clock
     width:       1.4em
     height:      1.4em
     line-height: 1.4em
-    text-align:  center
     z-index:     2
 
     &.num-1, &.num-11
@@ -105,7 +107,7 @@ div.analog-clock
       width:        .5em
       height:       .1em
       position:      absolute
-      border-radius: 0 50% 50% 0
+      border-radius: 0 .1em .1em 0
 
     &.num-1:before
       -webkit-transform: rotate(120deg)
@@ -236,6 +238,7 @@ div.analog-clock
 
     &:after
       font-size: 1.2em
+      line-height: 1.2em
       content:   ' '
       display:   block
       position:  absolute
@@ -279,3 +282,45 @@ div.analog-clock
 
     &.num-12:after
       content: '12'
+
+  div.arrow
+    z-index:        3
+    position:       absolute
+    background:     black
+    left:           40%
+    top:            50%
+    width:          20%
+    height:        .2em
+    margin-top:   -.1em
+    border-radius: .5em
+
+    &:after
+      content:       ' '
+      display:       block
+      position:      absolute
+      background:    inherit
+      height:        100%
+      width:         100%
+      top:           0px
+      border-radius: inherit
+
+    &.hours
+      -webkit-transform: rotate(-30deg)
+      font-size: 200%
+
+      &:after
+        right: -70%
+
+    &.minutes
+      -webkit-transform: rotate(30deg)
+
+      &:after
+        width: 220%
+
+    &.seconds
+      -webkit-transform: rotate(120deg)
+      background:     red
+      font-size:     50%
+
+      &:after
+        width: 250%
