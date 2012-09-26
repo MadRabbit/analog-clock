@@ -24,7 +24,7 @@ div.analog-clock
   position:         relative
   width:            10em
   height:           10em
-  border:           1em solid rgba(0,0,0,.4)
+  border:           .75em solid rgba(0,0,0,.4)
   border-radius:    50%
   background-color: rgba(255,255,255,.5)
 
@@ -101,7 +101,7 @@ div.analog-clock
       font-size:     1em
       content:       ' '
       display:       block
-      background:    rgba(0,0,0,.75)
+      background:    rgba(0,0,0,.25)
       width:        .5em
       height:       .1em
       position:      absolute
@@ -234,3 +234,48 @@ div.analog-clock
     &.num-12:before
       top: -20%
 
+    &:after
+      font-size: 1.2em
+      content:   ' '
+      display:   block
+      position:  absolute
+      left:      0px
+      top:       0px
+      width:     100%
+      height:    100%
+
+    &.num-1:after
+      content: '1'
+
+    &.num-2:after
+      content: '2'
+
+    &.num-3:after
+      content: '3'
+
+    &.num-4:after
+      content: '4'
+
+    &.num-5:after
+      content: '5'
+
+    &.num-6:after
+      content: '6'
+
+    &.num-7:after
+      content: '7'
+
+    &.num-8:after
+      content: '8'
+
+    &.num-9:after
+      content: '9'
+
+    &.num-10:after
+      content: '10'
+
+    &.num-11:after
+      content: '11'
+
+    &.num-12:after
+      content: '12'
