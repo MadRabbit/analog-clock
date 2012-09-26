@@ -29,23 +29,13 @@ div.analog-clock
   background-color: rgba(255,255,255,.5)
   text-align:       center
 
-  &:before, &:after
-    content:       ' '
-    position:      absolute
-    width:         50%
-    height:        50%
-    left:          0px
-    top:           0px
-    border-radius: 100% 0 0 0
-    z-index:       1
-    background:    yellow
-
-
-  &:after
-    top:           50%
-    left:          50%
-    border-radius: 0 0 100% 0
-    background:    pink
+  &:before
+    content:   'lovely.io'
+    position:  relative
+    z-index:   1
+    font-size: 50%
+    color:     rgba(0,0,0,.2)
+    top:       25%
 
   label
     font-size:   1em
@@ -294,6 +284,10 @@ div.analog-clock
     margin-top:   -.1em
     border-radius: .5em
     -webkit-transition: -webkit-transform .3s
+    -moz-transition:    -moz-transform    .3s
+    -ms-transition:     -ms-transform     .3s
+    -o-transition:      -o-transform      .3s
+    transition:         transform         .3s
 
     &:after
       content:       ' '
