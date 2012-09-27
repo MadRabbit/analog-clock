@@ -38,6 +38,8 @@ class AnalogClock extends Element
   # @return {AnalogClock} this
   #
   time: (date)->
+    time    = date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds()
+
     seconds = @first('.seconds')._.style
     minutes = @first('.minutes')._.style
     hours   = @first('.hours')._.style
@@ -46,21 +48,19 @@ class AnalogClock extends Element
     seconds.MozTransform        =
     seconds.msTransform         =
     seconds.oTransform          =
-    seconds.transform           = "rotate("+ (6 * (date.getSeconds() || 0.1) - 90) + "deg) translate3d(0,0,0)"
+    seconds.transform           = "rotate("+ (6 * time - 90) + "deg) translate3d(0,0,0)"
 
     minutes.WebkitTransform     =
     minutes.MozTransform        =
     minutes.msTransform         =
     minutes.oTransform          =
-    minutes.transform           = "rotate("+ (6 * (date.getMinutes() || 0.1) - 90) + "deg) translate3d(10px,0,0)"
-
-    hour = date.getHours() + date.getMinutes() / 60; hour > 12 && (hour -= 12)
+    minutes.transform           = "rotate("+ (6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
 
     hours.WebkitTransform       =
     hours.MozTransform          =
     hours.msTransform           =
     hours.oTransform            =
-    hours.transform             = "rotate("+ (360 / 12 * (hour || 0.1) - 90) + "deg) translate3d(20px,0,0)"
+    hours.transform             = "rotate("+ (360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
 
     return @
 
