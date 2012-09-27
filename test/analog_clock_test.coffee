@@ -57,5 +57,18 @@ describe "AnalogClock", ->
     it "should return the clock object back when used as a setter", ->
       clock.label('something').should.equal clock
 
+  describe '#time()', ->
+
+    it "should allow to set and get a time", ->
+      time = new Date()
+      time.setHours(time.getHours() + 2)
+      clock.time(time)
+      clock.time().should.eql time.getTime()
+
+    it "should return the clock object itself back when used as a setter", ->
+      clock.time(new Date()).should.equal clock
+
+
+
 
 
