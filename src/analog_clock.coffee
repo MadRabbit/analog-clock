@@ -46,21 +46,21 @@ class AnalogClock extends Element
 
     seconds.WebkitTransform     =
     seconds.MozTransform        =
-    seconds.msTransform         =
-    seconds.oTransform          =
-    seconds.transform           = "rotate("+ (6 * time - 90) + "deg) translate3d(0,0,0)"
+    seconds.MsTransform         =
+    seconds.OTransform          =
+    seconds.transform           = "rotate("+ Math.round(6 * time - 90) + "deg) translate3d(0,0,0)"
 
     minutes.WebkitTransform     =
     minutes.MozTransform        =
-    minutes.msTransform         =
-    minutes.oTransform          =
-    minutes.transform           = "rotate("+ (6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
+    minutes.MsTransform         =
+    minutes.OTransform          =
+    minutes.transform           = "rotate("+ Math.round(6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
 
     hours.WebkitTransform       =
     hours.MozTransform          =
-    hours.msTransform           =
-    hours.oTransform            =
-    hours.transform             = "rotate("+ (360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
+    hours.MsTransform           =
+    hours.OTransform            =
+    hours.transform             = "rotate("+ Math.round(360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
 
     return @
 
