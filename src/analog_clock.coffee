@@ -42,7 +42,7 @@ class AnalogClock extends Element
       <div class="arrow seconds"></div>
     """
 
-    @start()
+    @time(new Date()).start()
 
   #
   # Sets/Gets the label text
@@ -58,7 +58,7 @@ class AnalogClock extends Element
   #
   # Sets up the current time
   #
-  # @param {Date} current time
+  # @param {Date|Number} current time
   # @return {AnalogClock} this
   #
   time: (time)->
@@ -66,41 +66,16 @@ class AnalogClock extends Element
       return @_time
     else
       @_time  = new Date(time)
-      time    = time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()
-
-      seconds = @first('.seconds')._.style
-      minutes = @first('.minutes')._.style
-      hours   = @first('.hours')._.style
-
-      seconds.WebkitTransform     =
-      seconds.MozTransform        =
-      seconds.MsTransform         =
-      seconds.OTransform          =
-      seconds.transform           = "rotate("+ Math.round(6 * time - 90) + "deg) translate3d(0,0,0)"
-
-      minutes.WebkitTransform     =
-      minutes.MozTransform        =
-      minutes.MsTransform         =
-      minutes.OTransform          =
-      minutes.transform           = "rotate("+ Math.round(6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
-
-      hours.WebkitTransform       =
-      hours.MozTransform          =
-      hours.MsTransform           =
-      hours.OTransform            =
-      hours.transform             = "rotate("+ Math.round(360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
+      @move(time)
 
     return @
 
   #
   # Starts the timer
   #
-  # @param {Date} optional date to start
   # @return {AnalogClock} this
   #
   start: (time)->
-    @time(time || new Date())
-
     @_timer = window.setInterval =>
       @time new Date()
     , 100
@@ -115,3 +90,35 @@ class AnalogClock extends Element
   stop: ->
     window.clearInterval @_timer if @_timer
     return @
+
+  #
+  # Moves the clock hands to the specified time position
+  #
+  # @param {Date|Number} time
+  # @return {AnalogClock} self
+  #
+  move: (time)->
+    time    = new Date(time)
+    time    = time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()
+
+    seconds = @first('.seconds')._.style
+    minutes = @first('.minutes')._.style
+    hours   = @first('.hours')._.style
+
+    seconds.WebkitTransform     =
+    seconds.MozTransform        =
+    seconds.MsTransform         =
+    seconds.OTransform          =
+    seconds.transform           = "rotate("+ Math.round(6 * time - 90) + "deg) translate3d(0,0,0)"
+
+    minutes.WebkitTransform     =
+    minutes.MozTransform        =
+    minutes.MsTransform         =
+    minutes.OTransform          =
+    minutes.transform           = "rotate("+ Math.round(6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
+
+    hours.WebkitTransform       =
+    hours.MozTransform          =
+    hours.MsTransform           =
+    hours.OTransform            =
+    hours.transform             = "rotate("+ Math.round(360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
