@@ -30,6 +30,23 @@ div.analog-clock
   text-align:       center
   box-shadow:       0px 0px .25em inset
 
+  &:before, &:after
+    content:       ' '
+    display:       block
+    position:      absolute
+    left:          0px
+    right:         0px
+    width:         50%
+    height:        50%
+    background:    yellow
+    border-radius: 100% 0 0 0
+
+  &:after
+    left:          50%
+    top:           50%
+    background:    pink
+    border-radius: 0 0 100% 0
+
   label
     position:  relative
     z-index:   1
@@ -277,20 +294,21 @@ div.analog-clock
       content: '12'
 
   div.arrow
-    z-index:        3
-    position:       absolute
-    background:     black
-    left:           40%
-    top:            50%
-    width:          20%
-    height:        .2em
-    margin-top:   -.1em
-    border-radius: .5em
+    z-index:            3
+    position:           absolute
+    background:         black
+    left:               50%
+    bottom:             50%
+    width:             .2em
+    height:             20%
+    margin-left:       -.1em
+    border-radius:     .5em
     -webkit-transition: -webkit-transform .3s
     -moz-transition:    -moz-transform    .3s
     -ms-transition:     -ms-transform     .3s
     -o-transition:      -o-transform      .3s
     transition:         transform         .3s
+
 
     &:after
       content:       ' '
@@ -299,23 +317,42 @@ div.analog-clock
       background:    inherit
       height:        100%
       width:         100%
-      top:           0px
+      bottom:        0px
+      left:          0px
       border-radius: inherit
 
     &.hours
       font-size: 200%
+      margin-bottom: -5%
+      -webkit-transform-origin: center 75%
+      -moz-transform-origin:    center 75%
+      -ms-transform-origin:     center 75%
+      -o-transform-origin:      center 75%
+      transform-origin:         center 75%
 
       &:after
-        right: -70%
+        top: -60%
 
     &.minutes
+      margin-bottom: -7.5%
+      -webkit-transform-origin: center 62%
+      -moz-transform-origin:    center 62%
+      -ms-transform-origin:     center 62%
+      -o-transform-origin:      center 62%
+      transform-origin:         center 62%
 
       &:after
-        width: 220%
+        height: 210%
 
     &.seconds
-      background: red
-      font-size:  50%
+      background:     red
+      font-size:      50%
+      margin-bottom: -10%
+      -webkit-transform-origin: center center
+      -moz-transform-origin:    center center
+      -ms-transform-origin:     center center
+      -o-transform-origin:      center center
+      transform-origin:         center center
 
       &:after
-        width: 250%
+        height: 250%

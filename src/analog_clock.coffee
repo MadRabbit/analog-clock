@@ -46,6 +46,8 @@ class AnalogClock extends Element
 
     @time(time).start()
 
+    return @
+
   #
   # Sets/Gets the label text
   #
@@ -100,29 +102,21 @@ class AnalogClock extends Element
   # @return {AnalogClock} self
   #
   move: (time)->
-    time    = new Date(time)
-    time    = time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()
+    time   = new Date(time)
+    time   = time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds()
 
-    seconds = @first('.seconds')._.style
-    minutes = @first('.minutes')._.style
-    hours   = @first('.hours')._.style
+    rotate = (css_rule, deg)=>
+      style = @first(css_rule)._.style
 
-    seconds.WebkitTransform     =
-    seconds.MozTransform        =
-    seconds.MsTransform         =
-    seconds.OTransform          =
-    seconds.transform           = "rotate("+ Math.round(6 * time - 90) + "deg) translate3d(0,0,0)"
+      style.WebkitTransform     =
+      style.MozTransform        =
+      style.MsTransform         =
+      style.transform           = "rotate("+ deg + "deg) translate3d(0,0,0)"
+      style.OTransform          = "rotate("+ deg + "deg)" # doesn't support translate3d
 
-    minutes.WebkitTransform     =
-    minutes.MozTransform        =
-    minutes.MsTransform         =
-    minutes.OTransform          =
-    minutes.transform           = "rotate("+ Math.round(6 * Math.floor(time / 60) - 90) + "deg) translate3d(10px,0,0)"
+    rotate '.seconds', 360/60 * time
+    rotate '.minutes', 360/60 * Math.floor(time/60)
+    rotate '.hours',   360/12 * (time / 3600 % 12)
 
-    hours.WebkitTransform       =
-    hours.MozTransform          =
-    hours.MsTransform           =
-    hours.OTransform            =
-    hours.transform             = "rotate("+ Math.round(360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
-
+    return @
 
