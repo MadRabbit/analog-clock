@@ -6,13 +6,28 @@
     <script src="/core.js"></script>
     <script type="text/javascript">
       Lovely(["analog-clock"], function(Clock) {
-        new Clock({id: 'clock1'}).insertTo('#clocks');
+        var c1 = new Clock().insertTo('#large-clock');
+        var c2 = new Clock().insertTo('#small-clock');
+        var c3 = new Clock().insertTo('#small-clock');
+        var c4 = new Clock().insertTo('#small-clock');
       });
     </script>
+    <style type="text/css">
+      #large-clock div.analog-clock {
+        font-size: 320%;
+      }
+      #small-clock div.analog-clock {
+        font-size: 100%;
+        margin-right: 1em;
+      }
+    </style>
   </head>
   <body>
     <h1>Analog-Clock Demo</h1>
 
-    <div id="clocks"></div>
+    <div id="large-clock"></div>
+
+    <h2>Clocks With Different Times</h2>
+    <div id="small-clock"></div>
   </body>
 </html>
