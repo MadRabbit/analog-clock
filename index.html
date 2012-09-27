@@ -7,9 +7,9 @@
     <script type="text/javascript">
       Lovely(["analog-clock"], function(Clock) {
         var c1 = new Clock().insertTo('#large-clock');
-        var c2 = new Clock().insertTo('#small-clock');
-        var c3 = new Clock().insertTo('#small-clock');
-        var c4 = new Clock().insertTo('#small-clock');
+        var c2 = new Clock({label: 'Moscow'}).insertTo('#small-clock');
+        var c3 = new Clock({label: 'New York'}).insertTo('#small-clock');
+        var c4 = new Clock({label: 'Tokyo'}).insertTo('#small-clock');
       });
     </script>
     <style type="text/css">
@@ -29,5 +29,7 @@
 
     <h2>Clocks With Different Times</h2>
     <div id="small-clock"></div>
+
+    <p class="white-space"></p>
   </body>
 </html>

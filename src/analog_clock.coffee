@@ -5,24 +5,37 @@
 #
 class AnalogClock extends Element
 
+  #
+  # Basic constructor
+  #
+  # @param {Object} options
+  # @return {AnalogClock} this
+  #
   constructor: (options)->
+    options or= {}
+    label     = options.label || 'lovely.io'
+
+    delete(options.label)
+
     super 'div', options
 
     @addClass 'analog-clock'
 
     @html """
-      <label class="num-1"></label>
-      <label class="num-2"></label>
-      <label class="num-3"></label>
-      <label class="num-4"></label>
-      <label class="num-5"></label>
-      <label class="num-6"></label>
-      <label class="num-7"></label>
-      <label class="num-8"></label>
-      <label class="num-9"></label>
-      <label class="num-10"></label>
-      <label class="num-11"></label>
-      <label class="num-12"></label>
+      <label>#{label}</label>
+
+      <span class="num-1"></span>
+      <span class="num-2"></span>
+      <span class="num-3"></span>
+      <span class="num-4"></span>
+      <span class="num-5"></span>
+      <span class="num-6"></span>
+      <span class="num-7"></span>
+      <span class="num-8"></span>
+      <span class="num-9"></span>
+      <span class="num-10"></span>
+      <span class="num-11"></span>
+      <span class="num-12"></span>
 
       <div class="arrow hours"></div>
       <div class="arrow minutes"></div>
@@ -30,6 +43,17 @@ class AnalogClock extends Element
     """
 
     @start()
+
+  #
+  # Sets/Gets the label text
+  #
+  label: (text)->
+    if text is undefined
+      return @find('label').html()
+    else
+      @find('label').html(text)
+
+    return @
 
   #
   # Sets up the current time
