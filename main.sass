@@ -40,6 +40,7 @@ div.analog-clock
     height:        50%
     background:    yellow
     border-radius: 100% 0 0 0
+    display:       none
 
   &:after
     left:          50%
@@ -356,3 +357,16 @@ div.analog-clock
 
       &:after
         height: 250%
+
+      &:before
+        content:         ' '
+        display:         block
+        position:        absolute
+        bottom:          50%
+        background:      inherit
+        border-radius:   50%
+        width:          .5em
+        height:         .5em
+        margin-left:   -.15em
+        margin-bottom: -.2em
+
