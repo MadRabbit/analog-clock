@@ -13,8 +13,10 @@ class AnalogClock extends Element
   #
   constructor: (options)->
     options or= {}
+    time      = options.time  || new Date()
     label     = options.label || 'lovely.io'
 
+    delete(options.time)
     delete(options.label)
 
     super 'div', options
@@ -42,7 +44,7 @@ class AnalogClock extends Element
       <div class="arrow seconds"></div>
     """
 
-    @time(new Date()).start()
+    @time(time).start()
 
   #
   # Sets/Gets the label text

@@ -30,7 +30,7 @@ describe "AnalogClock", ->
     it "should add the 'analog-clock' class to it", ->
       clock._.className.should.eql 'analog-clock'
 
-    it "should build 12 labels", ->
+    it "should build 12 numbers", ->
       labels = clock.find('span')
       labels.should.have.length 12
       labels.map('getClass').toArray().should.eql 'num-1,num-2,num-3,num-4,num-5,num-6,num-7,num-8,num-9,num-10,num-11,num-12'.split(',')
@@ -43,6 +43,16 @@ describe "AnalogClock", ->
     it "should set the default label as 'lovely.io'", ->
       clock.find('label').should.have.length 1
       clock.first('label').html().should.eql 'lovely.io'
+
+    it "should accept the 'label' option", ->
+      c = new AnalogClock(label: 'test')
+      c.label().should.equal 'test'
+
+    it "should accept the 'time' option", ->
+      t = new Date()
+      t.setHours(t.getHours() + 3)
+      c = new AnalogClock(time: t)
+      c.time().should.equal t
 
   describe '#label()', ->
 
@@ -63,7 +73,7 @@ describe "AnalogClock", ->
       time = new Date()
       time.setHours(time.getHours() + 2)
       clock.time(time)
-      clock.time().should.eql time.getTime()
+      clock.time().should.equal time
 
     it "should return the clock object itself back when used as a setter", ->
       clock.time(new Date()).should.equal clock
