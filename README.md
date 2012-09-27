@@ -1,6 +1,14 @@
-# Analog-Clock
+# Analog Clock
 
-Analog-Clock is ...
+AnalogClock is a simple package that provides a fully CSS customisable analog clock widget
+
+## Usage
+
+```js
+Lovley(['analog-clock'], function(AnalogClock) {
+  new AnalogClock().insertTo(document.body);
+});
+```
 
 
 ## Copyright And License
