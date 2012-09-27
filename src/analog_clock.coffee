@@ -67,8 +67,8 @@ class AnalogClock extends Element
     if time is undefined
       return @_time
     else
-      @_time  = new Date(time)
-      @move(time)
+      @move(@_time = new Date(time))
+      @_offset     = new Date() - @_time
 
     return @
 
@@ -77,9 +77,9 @@ class AnalogClock extends Element
   #
   # @return {AnalogClock} this
   #
-  start: (time)->
+  start: ->
     @_timer = window.setInterval =>
-      @time new Date()
+      @move new Date(new Date() - @_offset)
     , 100
 
     return @
@@ -124,3 +124,5 @@ class AnalogClock extends Element
     hours.MsTransform           =
     hours.OTransform            =
     hours.transform             = "rotate("+ Math.round(360 / 12 * (time / 3600 % 12) - 90) + "deg) translate3d(20px,0,0)"
+
+
